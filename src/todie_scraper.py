@@ -2,7 +2,7 @@ import urllib.request
 from bs4 import BeautifulSoup
 
 base_url = 'http://www.futas.net/naptar/day.php?date='
-info_ur  = 'http://www.futas.net/naptar/'
+info_ur = 'http://www.futas.net/naptar/'
 
 year = range(2013, 2019)
 month = range(1, 13)
