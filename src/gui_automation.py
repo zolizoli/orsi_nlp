@@ -18,10 +18,15 @@ def init_browser():
     return browser, select_no_results, competitions
 
 browser, select_no_results, competitions = init_browser()
+competition_elements = browser.find_elements_by_id('versenyeredmeny[verseny]')
+competition_names = [e.text for e in competition_elements][0]
+competition_names = competition_names.split('\n')
+competition_names = [e.strip() for e in competition_names]
+
 select_no_results.select_by_index(5)
 
-i = 0
-for i in range(0, 10):
+
+for i in range(1, len(competition_names)+1):
     try:
         #TODO: get name and date of event, use it in fname
         browser, select_no_results, competitions = init_browser()
@@ -29,9 +34,10 @@ for i in range(0, 10):
         competitions.select_by_index(i)
         browser.find_element_by_class_name('formbtn').click()
         t = browser.page_source.encode('utf-8')
-        fname = str(i).zfill(4) + '.html'
+        fname = competition_names[i] + '.html'
         with open(join(out_path, fname), 'wb') as f:
             f.write(t)
         i += 1
     except Exception as e:
+        print(e)
         continue
