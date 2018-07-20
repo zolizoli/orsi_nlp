@@ -54,5 +54,5 @@ select_no_results.select_by_index(5)
 ###############################################################################
 #####                       download tables                               #####
 ###############################################################################
-with ThreadPoolExecutor(max_workers=3) as executor:
+with ThreadPoolExecutor(max_workers=30) as executor:
     executor.map(get_table_from_site, list(range(1, len(competition_names)+1)))
