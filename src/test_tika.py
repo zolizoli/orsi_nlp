@@ -7,7 +7,7 @@ from os.path import join, isfile
 # java -jar tika-app-1.18.jar -s
 tika.initVM()
 in_path = 'data/raw'
-out_path = 'data/iterim'
+out_path = 'data/interim'
 raw_texts = [f for f in listdir(in_path) if isfile(join(in_path, f))]
 for raw_text in raw_texts:
     parsed = parser.from_file(join(in_path, raw_text))

@@ -2,7 +2,7 @@ import icu
 from os import listdir
 from os.path import isfile, join
 
-in_path = 'data/iterim'
+in_path = 'data/interim'
 txts = [f for f in listdir(in_path) if isfile(join(in_path, f))]
 
 alphabet = []
